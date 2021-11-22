@@ -10,7 +10,6 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 function nightAlert () {
-    basic.showString("night")
     for (let index = 0; index < 4; index++) {
         pins.digitalWritePin(DigitalPin.P2, 1)
         basic.pause(500)
@@ -19,7 +18,6 @@ function nightAlert () {
     }
 }
 function dayAlert () {
-    basic.showString("day")
     for (let index = 0; index < 4; index++) {
         music.playMelody("C5 F C5 F C5 F C5 F ", 120)
     }
