@@ -1,6 +1,5 @@
 // daytime button
 input.onPinPressed(TouchPin.P0, function () {
-    basic.showString("day")
     radio.sendNumber(0)
 })
 radio.onReceivedNumber(function (receivedNumber) {
@@ -27,7 +26,6 @@ function dayAlert () {
 }
 // nighttime button
 input.onPinPressed(TouchPin.P1, function () {
-    basic.showString("night")
     radio.sendNumber(1)
 })
 radio.setGroup(83)
