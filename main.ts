@@ -1,7 +1,3 @@
-// daytime button
-input.onPinPressed(TouchPin.P0, function () {
-    radio.sendNumber(0)
-})
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         dayAlert()
@@ -9,11 +5,15 @@ radio.onReceivedNumber(function (receivedNumber) {
         nightAlert()
     }
 })
+// nighttime button
+input.onPinPressed(TouchPin.P2, function () {
+    radio.sendNumber(1)
+})
 function nightAlert () {
-    for (let index = 0; index < 1; index++) {
-        pins.digitalWritePin(DigitalPin.P2, 1)
+    for (let index = 0; index < 4; index++) {
+        pins.analogWritePin(AnalogPin.P8, 1023)
         basic.pause(500)
-        pins.digitalWritePin(DigitalPin.P2, 0)
+        pins.analogWritePin(AnalogPin.P8, 0)
         basic.pause(500)
     }
 }
@@ -22,8 +22,8 @@ function dayAlert () {
         music.playMelody("C5 F C5 F C5 F C5 F ", 120)
     }
 }
-// nighttime button
+// daytime button
 input.onPinPressed(TouchPin.P1, function () {
-    radio.sendNumber(1)
+    radio.sendNumber(0)
 })
-radio.setGroup(83)
+radio.setGroup(171)
